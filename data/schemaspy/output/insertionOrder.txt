@@ -1,0 +1,11 @@
+artists
+genres
+media_types
+playlists
+albums
+employees
+customers
+tracks
+invoices
+invoice_items
+playlist_track

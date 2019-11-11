@@ -1,0 +1,5 @@
+date=2019-11-11 00:24:44-0600
+os=Windows 10 10.0
+schemaspy-version=6.1.0
+schemaspy-build=6.1.0.41 2019-09-17 21:52:57
+diagramImplementation=Graphviz dot 2.38

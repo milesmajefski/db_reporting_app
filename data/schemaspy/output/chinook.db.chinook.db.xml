@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="../chinook.db" schema="chinook.db" type="SQLite - 3.27.2">
+   <tables>
+      <table name="albums" numRows="347" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="AlbumId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="AlbumId" foreignKey="" implied="false" onDeleteCascade="false" table="tracks"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Title" nullable="false" remarks="" size="2000000000" type="NVARCHAR(160)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="ArtistId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="ArtistId" foreignKey="" implied="false" onDeleteCascade="false" table="artists"/>
+         </column>
+         <primaryKey column="AlbumId" sequenceNumberInPK="1"/>
+         <index name="albums_s_pk" unique="true">
+            <column ascending="true" name="AlbumId"/>
+         </index>
+         <index name="IFK_AlbumArtistId" unique="false">
+            <column ascending="true" name="ArtistId"/>
+         </index>
+      </table>
+      <table name="artists" numRows="275" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="ArtistId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="ArtistId" foreignKey="" implied="false" onDeleteCascade="false" table="albums"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Name" nullable="true" remarks="" size="2000000000" type="NVARCHAR(120)" typeCode="12"/>
+         <primaryKey column="ArtistId" sequenceNumberInPK="1"/>
+         <index name="artists_s_pk" unique="true">
+            <column ascending="true" name="ArtistId"/>
+         </index>
+      </table>
+      <table name="customers" numRows="59" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="CustomerId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="CustomerId" foreignKey="" implied="false" onDeleteCascade="false" table="invoices"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="FirstName" nullable="false" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="LastName" nullable="false" remarks="" size="2000000000" type="NVARCHAR(20)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="3" name="Company" nullable="true" remarks="" size="2000000000" type="NVARCHAR(80)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="4" name="Address" nullable="true" remarks="" size="2000000000" type="NVARCHAR(70)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="5" name="City" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="6" name="State" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="7" name="Country" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="8" name="PostalCode" nullable="true" remarks="" size="2000000000" type="NVARCHAR(10)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="9" name="Phone" nullable="true" remarks="" size="2000000000" type="NVARCHAR(24)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="10" name="Fax" nullable="true" remarks="" size="2000000000" type="NVARCHAR(24)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="11" name="Email" nullable="false" remarks="" size="2000000000" type="NVARCHAR(60)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="12" name="SupportRepId" nullable="true" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="EmployeeId" foreignKey="" implied="false" onDeleteCascade="false" table="employees"/>
+         </column>
+         <primaryKey column="CustomerId" sequenceNumberInPK="1"/>
+         <index name="customers_s_pk" unique="true">
+            <column ascending="true" name="CustomerId"/>
+         </index>
+         <index name="IFK_CustomerSupportRepId" unique="false">
+            <column ascending="true" name="SupportRepId"/>
+         </index>
+      </table>
+      <table name="employees" numRows="8" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="EmployeeId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="SupportRepId" foreignKey="" implied="false" onDeleteCascade="false" table="customers"/>
+            <child column="ReportsTo" foreignKey="" implied="false" onDeleteCascade="false" table="employees"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="LastName" nullable="false" remarks="" size="2000000000" type="NVARCHAR(20)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="FirstName" nullable="false" remarks="" size="2000000000" type="NVARCHAR(20)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="3" name="Title" nullable="true" remarks="" size="2000000000" type="NVARCHAR(30)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="4" name="ReportsTo" nullable="true" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="EmployeeId" foreignKey="" implied="false" onDeleteCascade="false" table="employees"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="5" name="BirthDate" nullable="true" remarks="" size="2000000000" type="DATETIME" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="6" name="HireDate" nullable="true" remarks="" size="2000000000" type="DATETIME" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="7" name="Address" nullable="true" remarks="" size="2000000000" type="NVARCHAR(70)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="8" name="City" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="9" name="State" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="10" name="Country" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="11" name="PostalCode" nullable="true" remarks="" size="2000000000" type="NVARCHAR(10)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="12" name="Phone" nullable="true" remarks="" size="2000000000" type="NVARCHAR(24)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="13" name="Fax" nullable="true" remarks="" size="2000000000" type="NVARCHAR(24)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="14" name="Email" nullable="true" remarks="" size="2000000000" type="NVARCHAR(60)" typeCode="12"/>
+         <primaryKey column="EmployeeId" sequenceNumberInPK="1"/>
+         <index name="employees_s_pk" unique="true">
+            <column ascending="true" name="EmployeeId"/>
+         </index>
+         <index name="IFK_EmployeeReportsTo" unique="false">
+            <column ascending="true" name="ReportsTo"/>
+         </index>
+      </table>
+      <table name="genres" numRows="25" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="GenreId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="GenreId" foreignKey="" implied="false" onDeleteCascade="false" table="tracks"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Name" nullable="true" remarks="" size="2000000000" type="NVARCHAR(120)" typeCode="12"/>
+         <primaryKey column="GenreId" sequenceNumberInPK="1"/>
+         <index name="genres_s_pk" unique="true">
+            <column ascending="true" name="GenreId"/>
+         </index>
+      </table>
+      <table name="invoice_items" numRows="2240" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="InvoiceLineId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="InvoiceId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="InvoiceId" foreignKey="" implied="false" onDeleteCascade="false" table="invoices"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="TrackId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="TrackId" foreignKey="" implied="false" onDeleteCascade="false" table="tracks"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="3" name="UnitPrice" nullable="false" remarks="" size="2000000000" type="NUMERIC(10,2)" typeCode="6"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="4" name="Quantity" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4"/>
+         <primaryKey column="InvoiceLineId" sequenceNumberInPK="1"/>
+         <index name="invoice_items_s_pk" unique="true">
+            <column ascending="true" name="InvoiceLineId"/>
+         </index>
+         <index name="IFK_InvoiceLineInvoiceId" unique="false">
+            <column ascending="true" name="InvoiceId"/>
+         </index>
+         <index name="IFK_InvoiceLineTrackId" unique="false">
+            <column ascending="true" name="TrackId"/>
+         </index>
+      </table>
+      <table name="invoices" numRows="412" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="InvoiceId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="InvoiceId" foreignKey="" implied="false" onDeleteCascade="false" table="invoice_items"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="CustomerId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="CustomerId" foreignKey="" implied="false" onDeleteCascade="false" table="customers"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="InvoiceDate" nullable="false" remarks="" size="2000000000" type="DATETIME" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="3" name="BillingAddress" nullable="true" remarks="" size="2000000000" type="NVARCHAR(70)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="4" name="BillingCity" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="5" name="BillingState" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="6" name="BillingCountry" nullable="true" remarks="" size="2000000000" type="NVARCHAR(40)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="7" name="BillingPostalCode" nullable="true" remarks="" size="2000000000" type="NVARCHAR(10)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="8" name="Total" nullable="false" remarks="" size="2000000000" type="NUMERIC(10,2)" typeCode="6"/>
+         <primaryKey column="InvoiceId" sequenceNumberInPK="1"/>
+         <index name="invoices_s_pk" unique="true">
+            <column ascending="true" name="InvoiceId"/>
+         </index>
+         <index name="IFK_InvoiceCustomerId" unique="false">
+            <column ascending="true" name="CustomerId"/>
+         </index>
+      </table>
+      <table name="media_types" numRows="5" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="MediaTypeId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="MediaTypeId" foreignKey="" implied="false" onDeleteCascade="false" table="tracks"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Name" nullable="true" remarks="" size="2000000000" type="NVARCHAR(120)" typeCode="12"/>
+         <primaryKey column="MediaTypeId" sequenceNumberInPK="1"/>
+         <index name="media_types_s_pk" unique="true">
+            <column ascending="true" name="MediaTypeId"/>
+         </index>
+      </table>
+      <table name="playlist_track" numRows="8715" remarks="" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="10" id="0" name="PlaylistId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="PlaylistId" foreignKey="" implied="false" onDeleteCascade="false" table="playlists"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="TrackId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="TrackId" foreignKey="" implied="false" onDeleteCascade="false" table="tracks"/>
+         </column>
+         <primaryKey column="PlaylistId" sequenceNumberInPK="1"/>
+         <primaryKey column="TrackId" sequenceNumberInPK="2"/>
+         <index name="IFK_PlaylistTrackTrackId" unique="false">
+            <column ascending="true" name="TrackId"/>
+         </index>
+         <index name="sqlite_autoindex_playlist_track_1" unique="true">
+            <column ascending="true" name="PlaylistId"/>
+            <column ascending="true" name="TrackId"/>
+         </index>
+      </table>
+      <table name="playlists" numRows="18" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="PlaylistId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="PlaylistId" foreignKey="" implied="false" onDeleteCascade="false" table="playlist_track"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Name" nullable="true" remarks="" size="2000000000" type="NVARCHAR(120)" typeCode="12"/>
+         <primaryKey column="PlaylistId" sequenceNumberInPK="1"/>
+         <index name="playlists_s_pk" unique="true">
+            <column ascending="true" name="PlaylistId"/>
+         </index>
+      </table>
+      <table name="tracks" numRows="3503" remarks="" type="TABLE">
+         <column autoUpdated="true" defaultValue="null" digits="10" id="0" name="TrackId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <child column="TrackId" foreignKey="" implied="false" onDeleteCascade="false" table="invoice_items"/>
+            <child column="TrackId" foreignKey="" implied="false" onDeleteCascade="false" table="playlist_track"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="1" name="Name" nullable="false" remarks="" size="2000000000" type="NVARCHAR(200)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="2" name="AlbumId" nullable="true" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="AlbumId" foreignKey="" implied="false" onDeleteCascade="false" table="albums"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="3" name="MediaTypeId" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="MediaTypeId" foreignKey="" implied="false" onDeleteCascade="false" table="media_types"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="4" name="GenreId" nullable="true" remarks="" size="2000000000" type="INTEGER" typeCode="4">
+            <parent column="GenreId" foreignKey="" implied="false" onDeleteCascade="false" table="genres"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="5" name="Composer" nullable="true" remarks="" size="2000000000" type="NVARCHAR(220)" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="6" name="Milliseconds" nullable="false" remarks="" size="2000000000" type="INTEGER" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="7" name="Bytes" nullable="true" remarks="" size="2000000000" type="INTEGER" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="10" id="8" name="UnitPrice" nullable="false" remarks="" size="2000000000" type="NUMERIC(10,2)" typeCode="6"/>
+         <primaryKey column="TrackId" sequenceNumberInPK="1"/>
+         <index name="tracks_s_pk" unique="true">
+            <column ascending="true" name="TrackId"/>
+         </index>
+         <index name="IFK_TrackAlbumId" unique="false">
+            <column ascending="true" name="AlbumId"/>
+         </index>
+         <index name="IFK_TrackGenreId" unique="false">
+            <column ascending="true" name="GenreId"/>
+         </index>
+         <index name="IFK_TrackMediaTypeId" unique="false">
+            <column ascending="true" name="MediaTypeId"/>
+         </index>
+      </table>
+   </tables>
+</database>
