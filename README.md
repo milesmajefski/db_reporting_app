@@ -1,10 +1,10 @@
-# minimal-flask-react
+# db_reporting_app
 
-Based on https://github.com/rwieruch/minimal-react-webpack-babel-setup
+Based on https://github.com/jwkvam/minimal-flask-react.git
 
 ## Run Locally
 
-1. Clone this repo: `git clone git@github.com:jwkvam/minimal-flask-react.git`
+1. Clone this repo: `git clone https://github.com/milesmajefski/db_reporting_app.git`
 2. npm install
 3. npm run dev
 4. pip install -r requirements.txt

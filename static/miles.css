@@ -1,0 +1,35 @@
+html, body {
+    background-color: rgb(15, 15, 15);
+    color: lightgray;
+}
+
+a {
+    color: inherit;
+}
+
+img.filtered {
+    /* -webkit-filter: invert(75%) brightness(1.25); */
+    filter: invert(100%) contrast(0.5) brightness(1.25);
+}
+
+.pure-table thead {
+    background-color: rgb(53, 53, 53);
+    color: lightgray;
+}
+
+.pure-table caption {
+    color: lightgray;
+}
+
+.miles-container {
+    padding: 15px;
+}
+
+.miles-menu-item {
+    /* padding-left: 15px; */
+    padding-right: 15px;
+}
+
+.v-space {
+    padding-top: 25px;
+}
