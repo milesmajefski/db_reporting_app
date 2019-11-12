@@ -1,3 +1,11 @@
 {
-    "python.pythonPath": "C:\\Users\\miles\\.virtualenvs\\sqlite_flask_react-4oRBFWxx\\Scripts\\python.exe"
+    "python.pythonPath": "C:\\Users\\miles\\.virtualenvs\\sqlite_flask_react-4oRBFWxx\\Scripts\\python.exe",
+    "sqltools.connections": [
+        {
+            "database": "${workspaceFolder}\\data/chinook.db",
+            "dialect": "SQLite",
+            "name": "chinook"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
 }
