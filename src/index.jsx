@@ -59,8 +59,8 @@ class Reports extends React.Component {
                     <div key={index}>
                         <p></p>
                         <a href={report.url}>{report.name}</a>
-                        <pre><code>{report.query}</code></pre>
-                        <br />
+                        {/* <pre><code>{report.query}</code></pre> */}
+                        {/* <br /> */}
                     </div>
                 )}
             </div>

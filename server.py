@@ -7,7 +7,7 @@ import time
 import os
 import sqlite3
 import json
-from flask import Flask, render_template, url_for, Response, redirect
+from flask import Flask, render_template, url_for, Response  # , redirect
 app = Flask(__name__)
 db_file = 'data/chinook.db'
 
