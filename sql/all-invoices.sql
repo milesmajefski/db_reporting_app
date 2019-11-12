@@ -1,4 +1,4 @@
--- List all invoices, in no particular order
+-- List all invoices, highest first
 CREATE TEMPORARY TABLE temp.result AS
 SELECT
   invoices.InvoiceId,

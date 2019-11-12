@@ -3,14 +3,7 @@
 
 <head>
   <title>Report</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
-  <link rel="manifest" href="/static/site.webmanifest">
-  <link rel="stylesheet" href="/static/highlight/styles/vs2015.css">
-  <link rel="stylesheet" href="/static/pure-min.css">
-  <link rel="stylesheet" href="/static/miles.css">
+  {% include 'head.html' %}
   <script src="/static/highlight/highlight.pack.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
@@ -65,16 +58,13 @@
 </head>
 
 <body>
-  <div class="miles-container">
-    <a class="miles-menu-item" href="{{home_url}}">Home Page</a>
-    <a class="miles-menu-item" href="{{schema_url}}">DB Schema Diagram</a>
-    <a class="miles-menu-item" href="{{reports_url}}">View All Reports</a>
+    {% include 'topnav.html' %}
 
     <div class="miles-container">
       <div id="report" data-reportname="{{name}}" data-reportdata="{{data}}" data-reportquery="{{query}}"
         data-reporttimestamp="{{timestamp}}"></div>
     </div>
-  </div>
+
   <script src="/static/bundle.js"></script>
 </body>
 

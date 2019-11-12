@@ -1,7 +1,7 @@
 -- List the sales per media type descending
 CREATE TEMPORARY TABLE temp.result AS
 SELECT
-  media_types.MediaTypeId,
+  media_types.Name as Media,
   ROUND (
     SUM(invoice_items.UnitPrice * invoice_items.Quantity),
     2

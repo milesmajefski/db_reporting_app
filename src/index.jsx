@@ -7,10 +7,10 @@ class App extends React.Component {
         return (
             <div>
                 <h1>Database Reporting App</h1>
-                <div className="miles-container">
+                {/* <div className="miles-container">
                     <a className="miles-menu-item" href={this.props.reportsurl}>View All Reports</a>
                     <a className="miles-menu-item" href={this.props.schemaurl}>View Database Schema</a>
-                </div>
+                </div> */}
             </div>
         );
     }
@@ -24,14 +24,30 @@ if (root) {
 
 ///////////////////////////
 // Schema View
+const compactImage = "/static/relationships.real.compact.png";
+const largeImage = "/static/relationships.real.large.png";
+
 class ViewSchema extends React.Component {
+
+
     render() {
         return (
-            <div>
-                <h1>Db Schema Compact</h1>
-                <img className="filtered v-space" src="/static/relationships.real.compact.png" alt="" />
-                <h1>Db Schema Full</h1>
-                <img className="filtered v-space" src="/static/relationships.real.large.png" alt="" />
+            <div className="miles-imgs">
+                <div>
+                    <h1>Db Schema Compact</h1>
+                    <a href={compactImage}>
+                        <img className="miles-img v-space" src={compactImage} alt="" />
+                    </a>
+                </div>
+
+                <div>
+                    <h1>Db Schema Full</h1>
+                    <a href={largeImage}>
+                        <img className="miles-img v-space" src={largeImage} alt="" />
+                    </a>
+                </div>
+
+
             </div>
         );
     }
@@ -100,7 +116,9 @@ class Report extends React.Component {
             <div>
                 <h1>{this.props.reportname}</h1>
                 <pre><code>{this.props.reportquery}</code></pre>
-                <button className="pure-button" onClick={this.handleClick.bind(this)}>Download as CSV</button>
+                <div className="miles-pad-top">
+                    <button className="pure-button" onClick={this.handleClick.bind(this)}>Download as CSV</button>
+                </div>
                 <table className="pure-table pure-table-bordered">
                     <caption>{this.props.reportname} {this.dateString(this.state.timestamp)}</caption>
                     <thead>
