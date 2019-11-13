@@ -2,15 +2,15 @@ html {
     background-color: rgb(15, 15, 15);
     color: lightgray;
     overflow-y: scroll;
+    height: 100%;
+}
+
+body {
+    height: inherit;
 }
 
 a {
     color: inherit;
-}
-
-img.filtered {
-    /* -webkit-filter: invert(75%) brightness(1.25); */
-    /* filter: invert(100%) contrast(0.5) brightness(1.25); */
 }
 
 .pure-table thead {
@@ -25,8 +25,29 @@ img.filtered {
 .miles-container {
     padding: 15px;
 }
+
+.miles-expand-height {
+    height: 100%;
+}
+
+.miles-home-item {
+    height: fit-content;
+}
+
 .miles-pad-top {
     padding-top: 25px;
+}
+
+.miles-home-logo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* align-items: center; */
+    align-content: center;
+}
+
+.miles-home-logo img {
+    width: 200px;
 }
 
 .miles-img {
@@ -46,7 +67,6 @@ img.filtered {
 }
 
 .miles-menu-item {
-    /* padding-left: 15px; */
     padding-right: 15px;
 }
 

@@ -16,9 +16,8 @@
 
 <body>
     {% include 'topnav.html' %}
-  <div class="miles-container">
-    <!-- <a href="{{reports_url}}">View All Reports</a> -->
-    <div id="app" data-reportsurl="{{reports_url}}" data-schemaurl="{{schema_url}}"></div>
+  <div class="miles-container miles-expand-height">
+    <div id="app" class="miles-expand-height"></div>
   </div>
 
   <script src="static/bundle.js"></script>

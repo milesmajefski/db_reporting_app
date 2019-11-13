@@ -5,12 +5,14 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Database Reporting App</h1>
-                {/* <div className="miles-container">
-                    <a className="miles-menu-item" href={this.props.reportsurl}>View All Reports</a>
-                    <a className="miles-menu-item" href={this.props.schemaurl}>View Database Schema</a>
-                </div> */}
+            <div className="miles-home-logo  miles-expand-height">
+                <div className="miles-home-item">
+                    <img src="/static/db.png" alt="database image" />
+                </div>
+                <div className="miles-container miles-home-item">
+                    <h1>Database Reporting App</h1>
+                    <h2>ReactJS, Python, Flask, SQL, SQLite Demo</h2>
+                </div>
             </div>
         );
     }
@@ -35,14 +37,14 @@ class ViewSchema extends React.Component {
             <div className="miles-imgs">
                 <div>
                     <h1>Db Schema Compact</h1>
-                    <a href={compactImage}>
+                    <a href={compactImage} target="_blank">
                         <img className="miles-img v-space" src={compactImage} alt="" />
                     </a>
                 </div>
 
                 <div>
                     <h1>Db Schema Full</h1>
-                    <a href={largeImage}>
+                    <a href={largeImage} target="_blank">
                         <img className="miles-img v-space" src={largeImage} alt="" />
                     </a>
                 </div>
